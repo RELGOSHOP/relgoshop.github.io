@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RELGO App Store</title>
+  <style>
+    /* CSS styles for the app store */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .app-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+    }
+    
+    .app-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      background-color: #333333;
+      color: #fff;
+    }
+    
+    .app-card img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .app-card h3 {
+      margin-top: 10px;
+      color: #fff;
+    }
+    
+    /* Styles for the pop-up module */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .app-details {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .close-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .download-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>RELGO App Store</h1>
+  </div>
+  
+  <div class="app-list">
+    <div class="app-card">
+      <img src="da8a12b0-d1b5-4297-a66a-902a009d724c-removebg-preview.png" alt="App 1">
+      <h3>Chat Whatever</h3>
+      <p>The super cool AI!</p>
+      <button class="download-btn" data-app-id="chatwhatever">Download</button>
+    </div>
+    
+    <div class="app-card">
+      <img src="StevenHe.png" alt="App 2">
+      <h3>Steven He Game</h3>
+      <p>The annoying ASIAN game!</p>
+      <button class="download-btn" data-app-id="stevenhe">Download</button>
+    </div>
+    
+    <div class="app-card">
+      <img src="" alt="App 3">
+      <h3>Developing</h3>
+      <p>Still Developing</p>
+      <button class="download-btn" data-app-id="develop">Download</button>
+    </div>
+    
+    <!-- Add more app cards as needed -->
+  </div>
+  
+  <!-- Pop-up module -->
+  <div class="overlay">
+    <div class="app-details">
+      <h2 id="app-name"></h2>
+      <p id="app-description"></p>
+      <a id="app-download" class="download-link" href="" target="_blank">Download</a>
+      <button class="close-btn">Close</button>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript code for the pop-up module
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    const overlay = document.querySelector('.overlay');
+    const closeButton = document.querySelector('.close-btn');
+    const appNameElement = document.getElementById('app-name');
+    const appDescriptionElement = document.getElementById('app-description');
+    const appDownloadLink = document.getElementById('app-download');
+    
+    downloadButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const appId = button.getAttribute('data-app-id');
+        const app = getAppDetails(appId);
+        
+        if (app) {
+          appNameElement.textContent = app.name;
+          appDescriptionElement.textContent = app.description;
+          appDownloadLink.href = app.downloadLink;
+          overlay.style.display = 'flex';
+        }
+      });
+    });
+    
+    closeButton.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
+    
+    // Function to retrieve app details based on the app ID
+    function getAppDetails(appId) {
+      // Replace with your own logic to retrieve app details from a data source
+      // For example, you can use an object ora database to store and retrieve app details based on the app ID.
+      // Here's an example using an object:
+      const appDetails = {
+        chatwhatever: {
+          name: 'Chat Whatever',
+          description: 'The super cool AI made by a kid, updated every month!',
+          downloadLink: 'Bot.ZIP'
+        },
+        stevenhe: {
+          name: 'The Steven He Game',
+          description: 'The game based on the steven he series!',
+          downloadLink: 'game.ZIP'
+        },
+        develop: {
+          name: 'Developing',
+          description: 'Wait please!',
+          downloadLink: 'https://develop.ing/please.wait'
+        }
+      };
+      
+      return appDetails[appId];
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Home 主頁</a>
+  <a href="About-us.html">About us 關於我們</a>
+  <a href="Our-videos.html">Our videos 我們的視頻</a>
+  <a href="Chat-box.html">Chat box 聊天框</a>
+  <a href="https://www.youtube.com/channel/UCYGDMe6kiYJbabQVNYyuDpw">YouTube channel YouTube 頻道</a>
+  
+    <a href="https://forms.gle/kZ8uBShT4drrFwBb9" target="_blank">REL studio/禮拜六睇好戲 意見書</a>
+    <a href="https://forms.gle/B46xZmmbiWqYTSJo9" target="_blank">REL studio/禮拜六睇好戲 submissions</a>
+</div>
+
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ </button>  
+</div>
+
+ 
+ <button onclick="member()" id=h1>Member login 會員登錄</button>
+<h1 id=a1 ></h1>
+    <p>2022 REL禮拜六睇好戲. All Rights Reserved. 2022 REL禮拜六睇好戲。版權所有。</p>
+<style>
+        body {
+            /*Styling for the background*/
+            background: linear-gradient(to right, #2F80ED, #00ff48);
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+        /* Styling for the buttons */
+
+        #h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            margin: auto;
+            display: block;
+            border: none;
+            position: relative;
+            box-shadow: 0px 6px 0px #eb0000;
+            transition: all 0.04s linear;
+            top: 0;
+        }
+        /* Styling for the button when you hover the mouse over it */
+
+        #h1:hover {
+            cursor: pointer;
+            background-color: #ff4242;
+            box-shadow: 0px 6px 0px #fc2626;
+        }
+        /* Styling for the button the moment it is clicked */
+
+        #h1:active {
+            top: 6px;
+            box-shadow: none;
+        }
+        /* Styling for the button after it is clicked */
+
+        #h1:focus {
+            outline: none;
+        }
+
+</style>
+<script>
+        function member() {
+            var ans1 = prompt("type the password down 輸入密碼🤔🤔");
+
+            if (ans1 == "RELp3@123") {
+                alert("Correct! 正確的！");
+                document.getElementById("a1").innerHTML = "We will not make videos now. 我們現在不會製作視頻。But we will make cartoons";
+
+            } else {
+                alert("Incorrect!  不正確！");
+            }
+        }
+
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+</script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

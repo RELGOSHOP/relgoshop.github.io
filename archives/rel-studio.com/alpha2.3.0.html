@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>body {
+    /*Styling for the background*/
+    background-image: url("https://png.pngtree.com/back_origin_pic/00/02/86/ba6db86b499582636d1df73d7dbecaec.jpg");
+}
+
+
+/*Styling for the h1 and h2*/
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Rowdies', cursive;
+}
+
+h2 {
+    text-align: left;
+    color: #0000ff;
+    font-family: 'Rowdies', cursive;
+}
+
+
+/* Styling for the buttons */
+
+button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #4586FF;
+    color: #F5F5F5;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto;
+    display: block;
+    border: none;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 6px 0px #1a6aff;
+    transition: all 0.04s linear;
+}
+
+
+/* Styling for the button when you hover the mouse over it */
+
+button:hover {
+    cursor: pointer;
+    background-color: #739eef;
+    box-shadow: 0px 6px 0px #5389ef;
+}
+
+
+/* Styling for the button the moment it is clicked */
+
+button:active {
+    top: 6px;
+    box-shadow: none;
+}
+
+
+/* Styling for the button after it is clicked */
+
+button:focus {
+    outline: none;
+}
+
+
+/* For mobile view */
+
+@media only screen and (max-width: 736px) and (orientation: landscape) {
+    html {
+        min-height: 100%;
+    }
+    body {
+        min-height: 100%;
+    }
+    .wrapper {
+        height: auto;
+    }
+    .flex-item {
+        padding: 4%;
+        margin: 2%;
+    }
+}</style>
+</head>
+
+<body>
+    <h1 id=a1>REL studio</h1>
+    <button onclick="About()">About us</button>
+    <h2 id=a34></h2>
+    <h2>our videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EYcwyo7jm_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <button class=h1 onclick="script1()">script</button>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xEAPoVKQLSQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <button class=h1 onclick="script1()">script</button>
+
+    <button onclick="member()">I am a member of REL studio</button>
+
+
+ 
+
+    <script>function About() {
+    document.getElementById("a34").innerHTML = "We are a youtube channel that is made by kids and for kids.  In our channel, we have some funny videos!  Remember to subscribe and share our channel!  Thanks!😊😊😉😉😁😁(●'◡'●)   ______________________________________________";
+}
+
+function script1() {
+    alert("Sorry, this video doesn't have a script.");
+}
+
+function member() {
+    var ans1 = prompt("type the password down");
+
+    if (ans1 == "RELp3123") {
+        alert("Correct!");
+        document.getElementById("a1").innerHTML = "通知:Hi everyone! I am Ethan. The next time we will make the next videos in April.😊";
+
+    } else {
+        alert("Incorrect!");
+    }
+}</script>
+</body>
+
+</html>

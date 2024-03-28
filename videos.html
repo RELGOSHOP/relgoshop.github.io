@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RELGO Videos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333333;
+      margin: 0;
+    }
+
+    .app-store {
+      padding: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    .app {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .app img {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .app-info {
+      flex-grow: 1;
+    }
+
+    .app-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .hashtag {
+      font-size: 0px;
+    }
+
+    .app-description {
+      margin-bottom: 10px;
+    }
+
+    .app-actions {
+      text-align: right;
+    }
+
+    .app-actions button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .app-actions button:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode {
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    .dark-mode .app {
+      background-color: #222222;
+    }
+
+    .dark-mode .app-name {
+      color: #ffffff;
+    }
+
+    .dark-mode .app-description {
+      color: #cccccc;
+    }
+
+    .dark-mode .app-actions button {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    .buttons {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .dark-mode .buttons {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+
+    .logo {
+      width: 35px;
+      height: 35px;
+      margin-right: 20px;
+    }
+    
+     
+  </style>
+  
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const darkModeEnabled = body.classList.contains('dark-mode');
+      setDarkModePreference(darkModeEnabled);
+    }
+
+    function setDarkModePreference(darkModeEnabled) {
+      const expirationDate = new Date();
+      expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+      document.cookie = `darkModeEnabled=${darkModeEnabled}; expires=${expirationDate.toUTCString()}; path=/`;
+    }
+
+    function getDarkModePreference() {
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkModeEnabled') {
+          return value === 'true';
+        }
+      }
+      return false;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkModeEnabled = getDarkModePreference();
+      const body = document.body;
+      if (darkModeEnabled) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    });
+
+  </script>
+ 
+</head>
+
+<body>
+  <div class="app-store">
+    <h1><img src="imgs/relgovids.png" alt="Logo" class="logo">RELGO Videos</h1>
+    <h3>The successor of the REL studio YouTube channel</h3>
+    
+    <a href="index.html"><button class="buttons">Back</button></a>
+    <button onclick="toggleDarkMode()" class="buttons">Mode</button>
+      
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search..." oninput="filterApps()">
+    </div>
+
+    <div id="appList">
+          
+      <div class="app">
+        <img src="imgs/relgovids.png" alt="thechristmaseve">
+        <div class="app-info">
+          <div class="app-name">The Christmas Eve</div>
+          <div class="app-description">Some Kind of stupid and dumb animation for Christmas<p class="hashtag">christmas mickey santa claus omg oh my god</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://drive.google.com/file/d/1WAslRCc5f0OA6tAmaDeSOfcrf70xtDVt/view')">Watch</button>
+          </div>
+        </div>
+      </div>
+      <div class="app">
+        <img src="imgs/oldlogo.png" alt="Old Stuff">
+        <div class="app-info">
+          <div class="app-name">Older Videos</div>
+          <div class="app-description">The videos we did when we were babies...(through old youtube channel, now in the dumpster)<p class="hashtag">weird stupid young yt channel youtube channel REL studio</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.youtube.com/@rel853')">View Channel</button>
+          </div>
+        </div>
+      </div>
+      <div class="app">
+        <img src="imgs/relgovids.png" alt="Secret">
+        <div class="app-info">
+          <div class="app-name">Secret Video</div>
+          <div class="app-description">Who knows that this is?</div>
+          <div class="app-actions">
+            <button onclick="window.open('https://bit.ly/3VoScLE')">Watch</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more app entries here -->
+
+    </div>
+  </div>
+ 
+  <script>
+    function filterApps() {
+      const searchInput = document.getElementById('searchInput');
+      const filterValue = searchInput.value.toLowerCase();
+      const appList = document.getElementById('appList');
+      const apps = appList.getElementsByClassName('app');
+
+      for (const app of apps) {
+        const appName = app.getElementsByClassName('app-name')[0];
+        const appDescription = app.getElementsByClassName('app-description')[0];
+
+        const shouldShow = appName.textContent.toLowerCase().includes(filterValue) ||
+          appDescription.textContent.toLowerCase().includes(filterValue);
+
+        app.style.display = shouldShow ? 'flex' : 'none';
+      }
+    }
+
+  
+  </script>
+</body>
+
+</html>

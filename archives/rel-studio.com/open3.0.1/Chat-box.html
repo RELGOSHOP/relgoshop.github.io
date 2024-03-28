@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+     <a href="index.html">Home 主頁</a>
+  <a href="About-us.html">About us 關於我們</a>
+  <a href="Our-videos.html">Our videos 我們的視頻</a>
+  <a href="Member-login.html">Member login 會員登錄</a>
+ 
+  <a href="https://www.youtube.com/channel/UCYGDMe6kiYJbabQVNYyuDpw">YouTube channel YouTube 頻道</a>
+ 
+    <a href="https://forms.gle/kZ8uBShT4drrFwBb9" target="_blank">REL studio/禮拜六睇好戲 意見書</a>
+    <a href="https://forms.gle/B46xZmmbiWqYTSJo9" target="_blank">REL studio/禮拜六睇好戲 submissions</a>
+</div>
+
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ </button>  
+</div>
+
+    <div class="wrapper">
+        <div class="flex-item">
+            <h1>Mr. REL chat box REL先生聊天框</h1>
+            <img src="https://app.bsd.education/resources/chatbotpic.svg" />
+            <h2>Click the button to chat! 點擊按鈕聊天！</h2>
+            <button onclick="chat()" id=h1>Chat 聊天</button>
+        </div>
+    </div>
+    <p>2022 REL禮拜六睇好戲. All Rights Reserved. 2022 REL禮拜六睇好戲。版權所有。</p>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Open+Sans');
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+/* Styling for the entire page */
+body {
+    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    height: 100%;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Invisible div that wraps around the transparent div */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 5% 0;
+    height: 100vh;
+}
+
+/* Div that holds the text, image, and button */
+.flex-item {
+    width: 75%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    padding: 7% 2%;
+  	word-wrap: break-word;
+}
+
+/* The robot image */
+img {
+    width: 200px;
+}
+
+/* The heading above the button */
+h2 {
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Styling for the chat button */
+#h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #4586FF;
+    color: #F5F5F5;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto;
+    display: block;
+    border: none;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 6px 0px #1a6aff;
+    transition: all 0.04s linear;
+}
+
+/* Styling for the button when you hover the mouse over it */
+#h1:hover {
+    cursor: pointer;
+    background-color: #739eef;
+    box-shadow: 0px 6px 0px #5389ef;
+}
+
+/* Styling for the button the moment it is clicked */
+#h1:active {
+    top: 6px;
+    box-shadow: none;
+}
+
+/* Styling for the button after it is clicked */
+#h1:focus {
+    outline: none;
+}
+
+/* For mobile view */
+@media only screen and (max-width: 736px) and (orientation: landscape) {
+    html {
+        min-height: 100%;
+    }
+    body {
+        min-height: 100%;
+    }
+    .wrapper {
+        height: auto;
+    }
+    .flex-item {
+        padding: 4%;
+        margin: 2%;
+    }
+}
+
+</style>
+<script>
+function chat() {
+  //Greet the user
+  alert("Hello, my name is Mr. REL chat box! 大家好，我叫REL先生聊天框！");
+  
+  //Ask user for their name
+  var yourName = prompt("What is your name? 你叫什麼名字？");
+  alert("Nice to meet you, 很高興見到你， "+ yourName);
+  
+  //Ask user what their favorite food is
+  var food = prompt("What is your favorite food? 你最喜歡的食物是什麼？");
+  alert("I love "+ food + " too! 我也喜歡"+ food +"!");  
+  
+  //Ask user if they would like to share their food
+  var shareFood = confirm("May I please have some? 請給我一些好嗎？");
+  
+  //If the user clicks "OK"
+  if (shareFood == true){
+	alert("Thank you! 謝謝！");    
+  }
+  
+  //If the user clicks "Cancel"
+  else {
+  	alert("I understand, thanks anyway! 明白了，還是謝謝！");   
+  }
+}//closing bracket for the entire function, never delete this!
+
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+</script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

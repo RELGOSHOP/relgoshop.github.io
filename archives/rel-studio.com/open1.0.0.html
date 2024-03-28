@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>body {
+    /*Styling for the background*/
+    background: linear-gradient(to right, #2F80ED, #56CCF2);
+}
+
+
+/*Styling for the h1*/
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Rowdies', cursive;
+}
+
+div {
+  height: 50px
+}
+p {
+  text-align: center;
+}
+/* For mobile view */
+@media only screen and (max-width: 736px) and (orientation: landscape) {
+    html {
+        min-height: 100%;
+    }
+    body {
+        min-height: 100%;
+    }
+    .wrapper {
+        height: auto;
+    }
+    .flex-item {
+        padding: 4%;
+        margin: 2%;
+    }
+}
+</style>
+</head>
+
+<body>
+    <h1 id=a1>REL禮拜六睇好戲</h1>
+    <button onclick="About()">About us</button>
+    <h2 id=a34></h2>
+    <h2>our videos</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EYcwyo7jm_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <button class=h1 onclick="script1()">script</button>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xEAPoVKQLSQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <button class=h1 onclick="script1()">script</button>
+
+    <button onclick="member()">Member of REL</button>
+    <div></div>
+    <a href="https://forms.gle/kZ8uBShT4drrFwBb9" target="_blank">REL studio/禮拜六睇好戲 意見書</a>
+    <a href="https://forms.gle/B46xZmmbiWqYTSJo9" target="_blank">REL studio/禮拜六睇好戲 submissions</a>
+    <p>2022 REL禮拜六睇好戲. All Rights Reserved.</p>
+    <style>
+        body {
+            /*Styling for the background*/
+            background: linear-gradient(to right, #2F80ED, #56CCF2);
+        }
+        /*Styling for the h1 and h2*/
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-family: 'Rowdies', cursive;
+        }
+
+        h2 {
+            text-align: left;
+            color: #ff0000;
+            font-family: 'Rowdies', cursive;
+        }
+        /* Styling for the buttons */
+
+        button {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            margin: auto;
+            display: block;
+            border: none;
+            position: relative;
+            box-shadow: 0px 6px 0px #eb0000;
+            transition: all 0.04s linear;
+            top: 0;
+        }
+        /* Styling for the button when you hover the mouse over it */
+
+        button:hover {
+            cursor: pointer;
+            background-color: #ff4242;
+            box-shadow: 0px 6px 0px #fc2626;
+        }
+        /* Styling for the button the moment it is clicked */
+
+        button:active {
+            top: 6px;
+            box-shadow: none;
+        }
+        /* Styling for the button after it is clicked */
+
+        button:focus {
+            outline: none;
+        }
+
+        div {
+            height: 150px
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            text-align: center;
+        }
+        /* For mobile view */
+
+        @media only screen and (max-width: 736px) and (orientation: landscape) {
+            html {
+                min-height: 100%;
+            }
+            body {
+                min-height: 100%;
+            }
+            .wrapper {
+                height: auto;
+            }
+            .flex-item {
+                padding: 4%;
+                margin: 2%;
+            }
+            iframe {
+                height: auto;
+                width: auto;
+            }
+        }
+    </style>
+    <script>
+        function About() {
+            document.getElementById("a34").innerHTML = "We are a youtube channel that is made by kids and for kids.  In our channel, we have some funny videos!  Remember to subscribe and share our channel!  Thanks!😊😊😉😉😁😁(●'◡'●)   ______________________________________________";
+        }
+
+        function script1() {
+            alert("Sorry, this video doesn't have a script.");
+        }
+
+        function member() {
+            var ans1 = prompt("type the password down 🤔🤔");
+
+            if (ans1 == "RELp3@123") {
+                alert("Correct!");
+                document.getElementById("a1").innerHTML = "通知:Hi everyone! I am Ethan. The next time we will make the next videos in April.😊";
+
+            } else {
+                alert("Incorrect! ");
+            }
+        }
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

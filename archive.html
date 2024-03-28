@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RELGO Archives</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333333;
+      margin: 0;
+    }
+
+    .archplace {
+      padding: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    .arch {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .arch img {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .arch-info {
+      flex-grow: 1;
+    }
+
+    .arch-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .hashtag {
+      font-size: 0px;
+    }
+
+    .arch-description {
+      margin-bottom: 10px;
+    }
+
+    .arch-actions {
+      text-align: right;
+    }
+
+    .arch-actions button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .arch-actions button:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode {
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    .dark-mode .arch {
+      background-color: #222222;
+    }
+
+    .dark-mode .arch-name {
+      color: #ffffff;
+    }
+
+    .dark-mode .arch-description {
+      color: #cccccc;
+    }
+
+    .dark-mode .arch-actions button {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+
+
+    .buttons {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .dark-mode .buttons {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+
+    
+    .logo {
+      width: 35px;
+      height: 35px;
+      margin-right: 20px;
+    }
+    
+     
+  </style>
+  
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const darkModeEnabled = body.classList.contains('dark-mode');
+      setDarkModePreference(darkModeEnabled);
+    }
+
+    function setDarkModePreference(darkModeEnabled) {
+      const expirationDate = new Date();
+      expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+      document.cookie = `darkModeEnabled=${darkModeEnabled}; expires=${expirationDate.toUTCString()}; path=/`;
+    }
+
+    function getDarkModePreference() {
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkModeEnabled') {
+          return value === 'true';
+        }
+      }
+      return false;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkModeEnabled = getDarkModePreference();
+      const body = document.body;
+      if (darkModeEnabled) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    });
+
+  </script>
+ 
+</head>
+
+<body>
+  <div class="archplace">
+    <h1><img src="imgs/relgoarchive.png" alt="Arch" class="logo">RELGO Archive</h1>
+    <h3>Alert: This archive is not complete, we are still working on it.</h3>
+    
+    <a href="index.html"><button class="buttons">Back</button></a>
+    <button onclick="toggleDarkMode()" class="buttons">Mode</button>
+
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search..." oninput="filterArchs()">
+    </div>
+
+    <div id="archList">
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.alpha1.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/alpha1.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.alpha2.0.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/alpha2.0.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.alpha2.0.1</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/alpha2.0.1.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.alpha2.2.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/alpha2.2.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.alpha2.3.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/alpha2.3.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open1.0.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open1.0.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open1.0.1</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open1.0.1.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open1.1.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open1.1.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open2.0.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open2.0.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open2.0.1(aprilfools, may not work properly since html changes)</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open2.0.1funny.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open2.1.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open2.1.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open3.0.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open3.0.0/index.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">v.open3.0.1</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/open3.0.1/index.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">pre-openv1</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/pre-open.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">pre-openv2</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/pre-open2.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">Updating to v2.0</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/update-to2.0.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/oldlogo.png">
+        <div class="arch-info">
+          <div class="arch-name">REL-studio.com</div>
+          <div class="arch-description">New Site Alert</div>
+          <div class="arch-actions">
+            <a href="archives/rel-studio.com/newsitealert.html"><button class="buttons">Open</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="imgs/logo.png">
+        <div class="arch-info">
+          <div class="arch-name">relgoshop.github.io</div>
+          <div class="arch-description">v1.0</div>
+          <div class="arch-actions">
+            <a href="archives/relgoshop.github.io/1.0/index.html"><button>Open</button></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more arch entries here -->
+
+    </div>
+  </div>
+
+  <script>
+    function filterArchs() {
+      const searchInput = document.getElementById('searchInput');
+      const filterValue = searchInput.value.toLowerCase();
+      const archList = document.getElementById('archList');
+      const archs = archList.getElementsByClassName('arch');
+
+      for (const arch of archs) {
+        const archName = arch.getElementsByClassName('arch-name')[0];
+        const archDescription = arch.getElementsByClassName('arch-description')[0];
+
+        const shouldShow = archName.textContent.toLowerCase().includes(filterValue) ||
+          archDescription.textContent.toLowerCase().includes(filterValue);
+
+        arch.style.display = shouldShow ? 'flex' : 'none';
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
