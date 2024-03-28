@@ -1,3 +1,290 @@
-<h1>
-We are now uploading files for the new website! please wait...
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RELGO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333333;
+      margin: 0;
+    }
+
+    .app-store {
+      padding: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    .app {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .app img {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .app-info {
+      flex-grow: 1;
+    }
+
+    .app-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .hashtag {
+      font-size: 0px;
+    }
+
+    .app-description {
+      margin-bottom: 10px;
+    }
+
+    .app-actions {
+      text-align: right;
+    }
+
+    .app-actions button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .app-actions button:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode {
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    .dark-mode .app {
+      background-color: #222222;
+    }
+
+    .dark-mode .app-name {
+      color: #ffffff;
+    }
+
+    .dark-mode .app-description {
+      color: #cccccc;
+    }
+
+    .dark-mode .app-actions button {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+ 
+
+    .buttons {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .dark-mode .buttons {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+
+
+    
+    .logo {
+      width: 35px;
+      height: 35px;
+      margin-right: 20px;
+    }
+  </style>
+  
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const darkModeEnabled = body.classList.contains('dark-mode');
+      setDarkModePreference(darkModeEnabled);
+    }
+
+    function setDarkModePreference(darkModeEnabled) {
+      const expirationDate = new Date();
+      expirationDate.setFullYear(expirationDate.getFullYear() + 1);
+      document.cookie = `darkModeEnabled=${darkModeEnabled}; expires=${expirationDate.toUTCString()}; path=/`;
+    }
+
+    function getDarkModePreference() {
+      const cookies = document.cookie.split(';');
+      for (const cookie of cookies) {
+        const [name, value] = cookie.trim().split('=');
+        if (name === 'darkModeEnabled') {
+          return value === 'true';
+        }
+      }
+      return false;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const darkModeEnabled = getDarkModePreference();
+      const body = document.body;
+      if (darkModeEnabled) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    });
+
+  </script>
+ 
+</head>
+
+<body>
+  <div class="app-store">
+    <h1><img src="imgs/logo.png" alt="Logo" class="logo">RELGO</h1>
+    <h3>The successor of REL-studio.com</h3>
+    
+    <button onclick="toggleDarkMode()" class="buttons">Mode</button>
+
+    <a href="https://drive.google.com/file/d/14PoB-D-IzVpmrvsExlUbFhqoD6peVMTv/view?usp=sharing"><button class="buttons">Instructions</button></a>
+
+    
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search..." oninput="filterApps()">
+    </div>
+
+    <div id="appList">
+          <div class="app">
+        <img src="imgs/relgoarchive.png" alt="Our Web Archive">
+        <div class="app-info">
+          <div class="app-name">RELGO Archive</div>
+          <div class="app-description">The history of our website<p class="hashtag">REL REL STUDIO RELGO REL-STUDIO.COM old stuff</p></div>
+          <div class="app-actions">
+            <a href="archive.html"><button>Visit</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <img src="imgs/relgovids.png" alt="Videos">
+        <div class="app-info">
+          <div class="app-name">RELGO Videos</div>
+          <div class="app-description">Some random videos that we have made...<p class="hashtag">stuff youtube weird mp4 mpeg4</p></div>
+          <div class="app-actions">
+            <a href="videos.html"><button>Visit</button></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="app">
+        <img src="imgs/chatwhatever.png" alt="Chat Whatever">
+        <div class="app-info">
+          <div class="app-name">Chat Whatever</div>
+          <div class="app-description">A dumb AI<p class="hashtag">AI GPT artificial intellegence artificial intellegent tools chat</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.mediafire.com/file/xh41mm40rpb9brf/chatwhatever.exe/file')">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <img src="imgs/stevenhegame.png" alt="The Steven He Game">
+        <div class="app-info">
+          <div class="app-name">The Steven He Game</div>
+          <div class="app-description">Based on the Steven He series<p class="hashtag">Emotional Damage Games difficulty stupid asian dumb steven's dad</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.mediafire.com/file/s2mz9wza4x5ebe0/thestevenhegame.exe/file')">Download</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="app">
+        <img src="imgs/socialworkgpt.png" alt="Social Work GPT">
+        <div class="app-info">
+          <div class="app-name">Social Work GPT</div>
+          <div class="app-description">Having Social Problems? Use this!<p class="hashtag">AI GPT artificial intellegent artificial intellegence useful tools chat mental</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.mediafire.com/file/xgp3jgfhem82qey/socialworkgpt.exe/file')">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <img src="imgs/bettercolour.png" alt="Better Colour">
+        <div class="app-info">
+          <div class="app-name">Better Colour</div>
+          <div class="app-description">Colourblinded? Use this!<p class="hashtag">tools color blinders useful</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.mediafire.com/file/n82br43abk1udlo/bettercolour.exe/file')">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <img src="imgs/browserly.png" alt="Browserly">
+        <div class="app-info">
+          <div class="app-name">Browserly</div>
+          <div class="app-description">Tired of those fancy browsers lagging your cookie PC? Then browserly is your choice!<p class="hashtag">tools slow pc high quality useful browser cool runs fast</p></div>
+          <div class="app-actions">
+            <button onclick="window.open('https://www.mediafire.com/file/yk7eup0jhnjdg5i/browserly.ZIP/file')">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more app entries here -->
+
+    </div>
+  </div>
+
+  <script>
+    function filterApps() {
+      const searchInput = document.getElementById('searchInput');
+      const filterValue = searchInput.value.toLowerCase();
+      const appList = document.getElementById('appList');
+      const apps = appList.getElementsByClassName('app');
+
+      for (const app of apps) {
+        const appName = app.getElementsByClassName('app-name')[0];
+        const appDescription = app.getElementsByClassName('app-description')[0];
+
+        const shouldShow = appName.textContent.toLowerCase().includes(filterValue) ||
+          appDescription.textContent.toLowerCase().includes(filterValue);
+
+        app.style.display = shouldShow ? 'flex' : 'none';
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
